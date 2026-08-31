@@ -221,7 +221,7 @@
   if (M && typeof M.scroll === "function" && typeof M.animate === "function") {
     const heroEl = document.getElementById("top");
     const contentEl = document.querySelector(".hero__content");
-    const iconEl = document.querySelector(".hero__icon");
+    const mediaEl = document.querySelector(".hero__media");
 
     if (heroEl && contentEl) {
       M.scroll(
@@ -229,11 +229,17 @@
         { target: heroEl, offset: ["start start", "end start"] }
       );
     }
-    if (heroEl && iconEl) {
+    if (heroEl && mediaEl) {
       M.scroll(
-        M.animate(iconEl, { opacity: [0.5, 0.05] }, { easing: "linear" }),
+        M.animate(mediaEl, { opacity: [1, 0.3], y: [0, 40] }, { easing: "linear" }),
         { target: heroEl, offset: ["start start", "end start"] }
       );
     }
+  }
+
+  /* ---------- Hero video: respect reduced-motion preference ---------- */
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.pause();
   }
 })();

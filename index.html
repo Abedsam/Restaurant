@@ -47,19 +47,12 @@
 <section class="hero" id="top">
   <div class="sidebar-label">Pinneberger&nbsp;Ch.&nbsp;4&nbsp;·&nbsp;22523&nbsp;Hamburg</div>
 
-  <div class="hero__icon" aria-hidden="true">
-    <svg viewBox="0 0 200 200" fill="none">
-      <circle cx="100" cy="100" r="86" stroke="#40372e" stroke-width="1" stroke-dasharray="4 6"/>
-      <g class="hero__fork">
-        <path d="M70 40 L70 90 Q70 100 80 100 L80 160" stroke="#ffedd7" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M60 40 L60 75" stroke="#ffedd7" stroke-width="3" stroke-linecap="round"/>
-        <path d="M80 40 L80 75" stroke="#ffedd7" stroke-width="3" stroke-linecap="round"/>
-      </g>
-      <g class="hero__knife">
-        <path d="M130 40 C145 55 145 85 130 100 L130 160" stroke="#ffedd7" stroke-width="3" stroke-linecap="round" fill="none"/>
-      </g>
-      <circle cx="100" cy="100" r="3" fill="#dc5000"/>
-    </svg>
+  <div class="hero__media" aria-hidden="true">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+           poster="video/pizzahero-poster.jpg">
+      <source src="video/pizzahero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
   </div>
 
   <div class="hero__content">
