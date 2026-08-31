@@ -135,6 +135,51 @@
   updateStatus();
   setInterval(updateStatus, 60 * 1000);
 
+  /* ---------- Reservation form ---------- */
+  const reserveForm = document.getElementById("reserveForm");
+  if (reserveForm) {
+    const statusEl = document.getElementById("reserveStatus");
+    const submitBtn = reserveForm.querySelector(".reserve-form__submit");
+    const dateInput = document.getElementById("rDate");
+    if (dateInput) dateInput.min = new Date().toISOString().split("T")[0];
+
+    const setStatus = (text, state) => {
+      statusEl.textContent = text;
+      statusEl.dataset.state = state || "";
+    };
+
+    reserveForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (reserveForm.action.includes("YOUR_FORM_ID")) {
+        setStatus("Online-Formular ist noch nicht aktiv — bitte telefonisch reservieren: 040 57260833.", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus("Wird gesendet …");
+
+      try {
+        const response = await fetch(reserveForm.action, {
+          method: "POST",
+          body: new FormData(reserveForm),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          setStatus("Danke! Ihre Reservierungsanfrage ist eingegangen — wir melden uns in Kürze.", "success");
+          reserveForm.reset();
+        } else {
+          setStatus("Senden fehlgeschlagen. Bitte rufen Sie uns an: 040 57260833.", "error");
+        }
+      } catch (err) {
+        setStatus("Keine Verbindung. Bitte rufen Sie uns an: 040 57260833.", "error");
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
   /* ---------- Count-up animation for rating numbers ---------- */
   function countUp(el, target, isDecimal, duration = 1400) {
     const start = performance.now();

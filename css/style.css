@@ -460,6 +460,80 @@ ul { list-style: none; margin: 0; padding: 0; }
 .chips span:hover { border-color: var(--color-ember-accent); transform: translateY(-2px); }
 
 /* ==========================================================================
+   RESERVIEREN
+   ========================================================================== */
+.reserve-section { padding: var(--spacing-68) var(--spacing-24); max-width: 1200px; margin: 0 auto; }
+
+.reserve-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(320px, 1.3fr);
+  gap: var(--spacing-68);
+  align-items: start;
+}
+
+.reserve-intro .text-body { margin: var(--spacing-18) 0 var(--spacing-18); }
+
+.reserve-form {
+  display: grid;
+  gap: var(--spacing-24);
+  border: 1px solid var(--color-cork-border);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-24);
+}
+
+.reserve-form__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.reserve-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-24);
+}
+
+.field { display: flex; flex-direction: column; gap: var(--spacing-8); }
+.field--full { width: 100%; }
+
+.field label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-driftwood);
+}
+
+.field input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-cork-border);
+  color: var(--color-warm-cream);
+  font-family: var(--font-display);
+  font-size: 16px;
+  padding: var(--spacing-8) 2px;
+  border-radius: 0;
+  transition: border-color .2s;
+}
+.field input::placeholder { color: var(--color-driftwood); }
+.field input:focus {
+  outline: none;
+  border-bottom-color: var(--color-warm-cream);
+}
+
+/* normalize native date/time icon on dark bg */
+.field input[type="date"],
+.field input[type="time"] { color-scheme: dark; }
+
+.reserve-form__submit { justify-self: start; }
+.reserve-form__submit[disabled] { opacity: .6; cursor: default; }
+
+.reserve-form__status {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  min-height: 1em;
+}
+.reserve-form__status[data-state="success"] { color: var(--color-ember-accent); }
+.reserve-form__status[data-state="error"] { color: #e8877a; }
+
+/* ==========================================================================
    INFO
    ========================================================================== */
 .info-section { padding: var(--spacing-68) var(--spacing-24); max-width: 1200px; margin: 0 auto; }
@@ -543,6 +617,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   .text-body { max-width: none; margin-left: auto; margin-right: auto; }
   .stat-row { justify-content: center; }
   .reviews-grid { grid-template-columns: 1fr; text-align: center; }
+  .reserve-grid { grid-template-columns: 1fr; }
+  .reserve-form__row { grid-template-columns: 1fr; }
+  .reserve-form__submit { justify-self: stretch; }
   .info-grid { grid-template-columns: 1fr; }
   .hero__content { text-align: left; }
 }
