@@ -1,6 +1,29 @@
 (() => {
   "use strict";
 
+  /* ---------- Motion (motion.dev) scroll-driven triggers, with a plain
+     IntersectionObserver fallback if the CDN script didn't load ---------- */
+  const M = window.Motion;
+
+  function onceInView(el, amount, callback) {
+    if (M && typeof M.inView === "function") {
+      const stop = M.inView(el, () => {
+        callback();
+        stop();
+      }, { amount });
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            callback();
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: amount });
+      io.observe(el);
+    }
+  }
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -53,32 +76,20 @@
   sections.forEach((s) => spyObserver.observe(s));
 
   /* ---------- Scroll reveal ---------- */
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  document.querySelectorAll("[data-reveal]").forEach((el) => revealObserver.observe(el));
+  document.querySelectorAll("[data-reveal]").forEach((el) => {
+    onceInView(el, 0.15, () => {
+      if (M && typeof M.animate === "function") {
+        M.animate(el, { opacity: 1, y: 0 }, { duration: 0.8, easing: [0.16, 0.84, 0.44, 1] });
+      } else {
+        el.classList.add("in-view");
+      }
+    });
+  });
 
   /* ---------- Star fill animation trigger ---------- */
-  const starsObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          starsObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  document.querySelectorAll(".stars").forEach((el) => starsObserver.observe(el));
+  document.querySelectorAll(".stars").forEach((el) => {
+    onceInView(el, 0.5, () => el.classList.add("in-view"));
+  });
 
   /* ---------- Menu tabs ---------- */
   const tabs = document.querySelectorAll(".menu-tab");
@@ -202,17 +213,27 @@
     { el: document.getElementById("ratingCount2"), value: 435, decimal: false },
   ].filter((t) => t.el);
 
-  const countObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = countTargets.find((t) => t.el === entry.target);
-          if (target) countUp(target.el, target.value, target.decimal);
-          countObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.6 }
-  );
-  countTargets.forEach((t) => countObserver.observe(t.el));
+  countTargets.forEach((t) => {
+    onceInView(t.el, 0.6, () => countUp(t.el, t.value, t.decimal));
+  });
+
+  /* ---------- Hero scroll parallax (motion.dev scroll-linked animation) ---------- */
+  if (M && typeof M.scroll === "function" && typeof M.animate === "function") {
+    const heroEl = document.getElementById("top");
+    const contentEl = document.querySelector(".hero__content");
+    const iconEl = document.querySelector(".hero__icon");
+
+    if (heroEl && contentEl) {
+      M.scroll(
+        M.animate(contentEl, { opacity: [1, 0.25], y: [0, -60] }, { easing: "linear" }),
+        { target: heroEl, offset: ["start start", "end start"] }
+      );
+    }
+    if (heroEl && iconEl) {
+      M.scroll(
+        M.animate(iconEl, { opacity: [0.5, 0.05] }, { easing: "linear" }),
+        { target: heroEl, offset: ["start start", "end start"] }
+      );
+    }
+  }
 })();
