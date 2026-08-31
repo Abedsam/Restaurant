@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Pergola Eidelstedt — Italienisches Restaurant in Hamburg</title>
+<meta name="description" content="Ristorante Pergola Eidelstedt — italienische Küche in Hamburg-Eidelstedt. Pizza, Pasta &amp; mehr. Speisen vor Ort, zum Mitnehmen oder Lieferdienst. Täglich 11:00–22:00 Uhr geöffnet.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23100904'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23ffedd7' text-anchor='middle'%3EP%3C/text%3E%3Ccircle cx='32' cy='50' r='3' fill='%23dc5000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">Pergola<span>·</span>Eidelstedt</a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#uebersicht" class="nav__link" data-nav>Übersicht</a>
+      <a href="#speisekarte" class="nav__link" data-nav>Speisekarte</a>
+      <a href="#bewertungen" class="nav__link" data-nav>Bewertungen</a>
+      <a href="#info" class="nav__link" data-nav>Info</a>
+    </nav>
+    <a href="tel:+494057260833" class="btn btn--ghost nav__cta">Anrufen</a>
+    <button class="nav__burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- mobile overlay menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#uebersicht" data-nav>Übersicht</a>
+  <a href="#speisekarte" data-nav>Speisekarte</a>
+  <a href="#bewertungen" data-nav>Bewertungen</a>
+  <a href="#info" data-nav>Info</a>
+  <a href="tel:+494057260833" class="mobile-menu__phone">040&nbsp;57260833</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="sidebar-label">Pinneberger&nbsp;Ch.&nbsp;4&nbsp;·&nbsp;22523&nbsp;Hamburg</div>
+
+  <div class="hero__icon" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none">
+      <circle cx="100" cy="100" r="86" stroke="#40372e" stroke-width="1" stroke-dasharray="4 6"/>
+      <g class="hero__fork">
+        <path d="M70 40 L70 90 Q70 100 80 100 L80 160" stroke="#ffedd7" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M60 40 L60 75" stroke="#ffedd7" stroke-width="3" stroke-linecap="round"/>
+        <path d="M80 40 L80 75" stroke="#ffedd7" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g class="hero__knife">
+        <path d="M130 40 C145 55 145 85 130 100 L130 160" stroke="#ffedd7" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </g>
+      <circle cx="100" cy="100" r="3" fill="#dc5000"/>
+    </svg>
+  </div>
+
+  <div class="hero__content">
+    <p class="eyebrow" data-reveal>Italienisches Restaurant · Hamburg-Eidelstedt</p>
+    <h1 class="hero__title" data-reveal>Ristorante<br>Pergola</h1>
+
+    <div class="hero__meta" data-reveal>
+      <span class="rating">
+        <span class="stars" style="--fill:88%" aria-hidden="true"><span></span></span>
+        <b id="ratingValue">4.4</b>&nbsp;(<span id="ratingCount">435</span>)
+      </span>
+      <span class="dot">·</span>
+      <span>20–30&nbsp;€</span>
+      <span class="dot">·</span>
+      <span class="status" id="openStatus">Wird geladen…</span>
+    </div>
+
+    <p class="hero__body" data-reveal>Herzhafte italienische Klassiker, handgemachte Pasta und
+      knusprige Pizza aus dem Herzen von Eidelstedt — zum Speisen vor Ort, Mitnehmen
+      oder direkt nach Hause geliefert.</p>
+
+    <div class="hero__actions" data-reveal>
+      <a href="tel:+494057260833" class="btn btn--filled">Tisch reservieren</a>
+      <a href="#speisekarte" class="btn btn--ghost">Speisekarte ansehen</a>
+    </div>
+
+    <div class="hero__tags" data-reveal>
+      <span>Speisen vor Ort</span><span>Zum Mitnehmen</span><span>Lieferdienst</span><span>Online bestellen</span>
+    </div>
+  </div>
+
+  <a href="#uebersicht" class="scroll-cue" aria-label="Nach unten scrollen">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Pizza · Pasta · Vino · Antipasti · Dolce Vita · Pizza · Pasta · Vino · Antipasti · Dolce Vita ·</span>
+    <span>Pizza · Pasta · Vino · Antipasti · Dolce Vita · Pizza · Pasta · Vino · Antipasti · Dolce Vita ·</span>
+  </div>
+</div>
+
+<!-- ============ ÜBERSICHT ============ -->
+<section class="reveal-section" id="uebersicht">
+  <div class="reveal-grid">
+    <div class="reveal-col reveal-col--left" data-reveal>
+      <h2 class="h-display">Mehr als<br>nur Essen.</h2>
+    </div>
+
+    <div class="reveal-object" data-reveal>
+      <div class="plate">
+        <svg viewBox="0 0 220 220" fill="none">
+          <circle cx="110" cy="110" r="100" stroke="#40372e" stroke-width="1"/>
+          <circle cx="110" cy="110" r="72" stroke="#382416" stroke-width="30"/>
+          <circle cx="110" cy="110" r="4" fill="#dc5000"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="reveal-col reveal-col--right" data-reveal>
+      <p class="text-body">Seit Jahren verwöhnt die Pergola ihre Gäste in Eidelstedt mit
+        authentischer italienischer Küche — von hausgemachten Pasta-Klassikern bis zur
+        knusprigen Pizza aus dem Ofen. Frische Zutaten, familiäre Gastfreundschaft und ein
+        gemütliches Ambiente machen jeden Besuch zu einem kleinen Urlaub in Italien.</p>
+      <div class="divider"></div>
+      <div class="stat-row">
+        <div><b>4,4</b><span>Google-Bewertung</span></div>
+        <div><b>435</b><span>Rezensionen</span></div>
+        <div><b>7/7</b><span>Tage geöffnet</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEISEKARTE ============ -->
+<section class="menu-section" id="speisekarte">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Speisekarte</p>
+    <h2 class="h-heading">Unsere Klassiker</h2>
+    <p class="text-body text-body--muted">Eine beispielhafte Auswahl unserer Küche —
+      die vollständige und aktuelle Karte erhalten Sie im Restaurant oder telefonisch.</p>
+  </div>
+
+  <div class="menu-tabs" id="menuTabs" data-reveal>
+    <button class="menu-tab is-active" data-cat="antipasti">Antipasti</button>
+    <button class="menu-tab" data-cat="pizza">Pizza</button>
+    <button class="menu-tab" data-cat="pasta">Pasta</button>
+    <button class="menu-tab" data-cat="secondi">Secondi</button>
+    <button class="menu-tab" data-cat="dolci">Dolci</button>
+  </div>
+
+  <div class="divider" data-reveal></div>
+
+  <div class="menu-list" id="menuList">
+
+    <div class="menu-cat" data-cat="antipasti">
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Bruschetta al Pomodoro</span><span class="price">6,50&nbsp;€</span></div>
+        <p>Geröstetes Landbrot mit marinierten Tomaten, Knoblauch und Basilikum.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Antipasto della Casa</span><span class="price">12,90&nbsp;€</span></div>
+        <p>Auswahl italienischer Vorspeisen: Schinken, Salami, Oliven, gegrilltes Gemüse.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Caprese</span><span class="price">8,90&nbsp;€</span></div>
+        <p>Büffelmozzarella, Tomaten, frisches Basilikum, Olivenöl.</p>
+      </div>
+    </div>
+
+    <div class="menu-cat" data-cat="pizza" hidden>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Pizza Margherita</span><span class="price">8,50&nbsp;€</span></div>
+        <p>Tomatensauce, Mozzarella, frisches Basilikum.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Pizza Pergola</span><span class="price">13,90&nbsp;€</span></div>
+        <p>Hausspezialität mit Parmaschinken, Rucola und Parmesan.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Pizza Quattro Formaggi</span><span class="price">12,50&nbsp;€</span></div>
+        <p>Mozzarella, Gorgonzola, Parmesan, Provolone.</p>
+      </div>
+    </div>
+
+    <div class="menu-cat" data-cat="pasta" hidden>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Spaghetti Carbonara</span><span class="price">11,90&nbsp;€</span></div>
+        <p>Guanciale, Ei, Pecorino, schwarzer Pfeffer.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Tagliatelle al Tartufo</span><span class="price">15,90&nbsp;€</span></div>
+        <p>Hausgemachte Bandnudeln mit cremiger Trüffelsauce.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Lasagne della Casa</span><span class="price">12,90&nbsp;€</span></div>
+        <p>Klassisch geschichtet mit Rinderragout und Béchamel.</p>
+      </div>
+    </div>
+
+    <div class="menu-cat" data-cat="secondi" hidden>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Saltimbocca alla Romana</span><span class="price">21,90&nbsp;€</span></div>
+        <p>Kalbsschnitzel mit Parmaschinken und Salbei in Weißweinsauce.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Branzino al Forno</span><span class="price">23,50&nbsp;€</span></div>
+        <p>Gebackener Wolfsbarsch mit mediterranem Gemüse.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Ossobuco alla Milanese</span><span class="price">24,90&nbsp;€</span></div>
+        <p>Geschmorte Kalbshaxe mit Gremolata und Risotto.</p>
+      </div>
+    </div>
+
+    <div class="menu-cat" data-cat="dolci" hidden>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Tiramisù della Casa</span><span class="price">6,50&nbsp;€</span></div>
+        <p>Hausgemacht nach original italienischem Rezept.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Panna Cotta</span><span class="price">5,90&nbsp;€</span></div>
+        <p>Mit Waldbeersauce.</p>
+      </div>
+      <div class="menu-item" data-reveal>
+        <div class="menu-item__head"><span>Affogato al Caffè</span><span class="price">5,50&nbsp;€</span></div>
+        <p>Vanilleeis, ertränkt in heißem Espresso.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BEWERTUNGEN ============ -->
+<section class="reveal-section reveal-section--reviews" id="bewertungen">
+  <div class="reviews-grid">
+    <div data-reveal>
+      <p class="eyebrow">Bewertungen</p>
+      <h2 class="h-heading">Was Gäste<br>schätzen.</h2>
+    </div>
+
+    <div class="rating-block" data-reveal>
+      <div class="rating-block__number" id="ratingBig">4.4</div>
+      <div class="stars stars--lg" style="--fill:88%" aria-hidden="true"><span></span></div>
+      <p class="rating-block__count"><span id="ratingCount2">435</span> Google-Rezensionen</p>
+    </div>
+
+    <div class="chips" data-reveal>
+      <span>Authentisch italienisch</span>
+      <span>Herzlicher Service</span>
+      <span>Frische Zutaten</span>
+      <span>Familienfreundlich</span>
+      <span>Gemütliche Atmosphäre</span>
+      <span>Gutes Preis-Leistungs-Verhältnis</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFO ============ -->
+<section class="info-section" id="info">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Info</p>
+    <h2 class="h-heading">Besuchen Sie uns.</h2>
+  </div>
+
+  <div class="info-grid">
+
+    <div class="info-card" data-reveal>
+      <h3>Adresse</h3>
+      <p class="text-body">Pinneberger Chaussee 4<br>22523 Hamburg-Eidelstedt</p>
+      <a class="link-underline" href="https://www.google.com/maps/search/?api=1&query=Ristorante%20Pergola%20Eidelstedt%2C%20Pinneberger%20Chaussee%204%2C%2022523%20Hamburg" target="_blank" rel="noopener">Routenplaner öffnen →</a>
+    </div>
+
+    <div class="info-card" data-reveal>
+      <h3>Kontakt</h3>
+      <p class="text-body"><a class="link-underline" href="tel:+494057260833">040&nbsp;57260833</a></p>
+      <div class="hero__tags">
+        <span>Speisen vor Ort</span><span>Zum Mitnehmen</span><span>Lieferdienst</span>
+      </div>
+    </div>
+
+    <div class="info-card info-card--hours" data-reveal>
+      <h3>Öffnungszeiten</h3>
+      <ul class="hours" id="hoursList">
+        <li data-day="1"><span>Montag</span><span>11:00–22:00</span></li>
+        <li data-day="2"><span>Dienstag</span><span>11:00–22:00</span></li>
+        <li data-day="3"><span>Mittwoch</span><span>11:00–22:00</span></li>
+        <li data-day="4"><span>Donnerstag</span><span>11:00–22:00</span></li>
+        <li data-day="5"><span>Freitag</span><span>11:00–22:00</span></li>
+        <li data-day="6"><span>Samstag</span><span>11:00–22:00</span></li>
+        <li data-day="0"><span>Sonntag</span><span>11:00–22:00</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="map-embed" data-reveal>
+    <iframe
+      title="Karte Ristorante Pergola Eidelstedt"
+      src="https://www.google.com/maps?q=Pinneberger+Chaussee+4,+22523+Hamburg&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__logo">Pergola · Eidelstedt</span>
+    <span class="footer__credit">Made with <span class="ember">♥</span> in Hamburg</span>
+  </div>
+  <div class="divider"></div>
+  <p class="footer__legal">© <span id="year"></span> Ristorante Pergola Eidelstedt · Pinneberger Chaussee 4, 22523 Hamburg · 040 57260833</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
