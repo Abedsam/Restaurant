@@ -174,11 +174,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   gap: var(--spacing-24);
 }
 
-.nav__logo {
-  font-size: 13px; font-weight: 500; text-transform: uppercase;
-  letter-spacing: .02em;
+.nav__logo { display: flex; align-items: center; }
+.nav__logo-img {
+  height: 28px;
+  width: auto;
 }
-.nav__logo span { color: var(--color-ember-accent); margin: 0 2px; }
 
 .nav__links { display: flex; gap: var(--spacing-31); margin-right: auto; margin-left: var(--spacing-45); }
 .nav__link {
@@ -459,6 +459,61 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .chips span:hover { border-color: var(--color-ember-accent); transform: translateY(-2px); }
 
+.reviews-marquee__label {
+  max-width: 1100px;
+  margin: var(--spacing-45) auto 0;
+  padding: 0 var(--spacing-24);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-driftwood);
+}
+
+.reviews-marquee {
+  margin-top: var(--spacing-18);
+  overflow: hidden;
+  border-top: 1px dashed var(--color-cork-border);
+  border-bottom: 1px dashed var(--color-cork-border);
+  padding: var(--spacing-31) 0;
+}
+.reviews-marquee__track {
+  display: flex;
+  gap: var(--spacing-18);
+  width: max-content;
+  animation: marquee-reviews 75s linear infinite;
+}
+.reviews-marquee:hover .reviews-marquee__track { animation-play-state: paused; }
+
+@keyframes marquee-reviews {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.review-card {
+  flex: 0 0 auto;
+  width: 320px;
+  border: 1px dashed var(--color-cork-border);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-18) var(--spacing-24);
+}
+.review-card p {
+  margin: 0 0 var(--spacing-10);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-warm-cream);
+}
+.review-card span {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-ember-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-marquee__track { animation: none; }
+}
+
 /* ==========================================================================
    RESERVIEREN
    ========================================================================== */
@@ -579,7 +634,7 @@ ul { list-style: none; margin: 0; padding: 0; }
    ========================================================================== */
 .footer { padding: var(--spacing-41) var(--spacing-24) var(--spacing-24); max-width: 1300px; margin: 0 auto; }
 .footer__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-12); }
-.footer__logo { font-size: 13px; font-weight: 500; text-transform: uppercase; }
+.footer__logo-img { height: 24px; width: auto; }
 .footer__credit { font-size: 13px; font-weight: 500; text-transform: uppercase; color: var(--color-driftwood); }
 .footer__legal { font-size: 11px; color: var(--color-driftwood); margin: var(--spacing-14) 0 0; text-transform: uppercase; }
 
@@ -625,6 +680,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 
 @media (max-width: 560px) {
+  .review-card { width: 260px; }
   .hero { padding-top: 140px; }
   .hero__icon { top: 4%; opacity: .35; }
   .hero__title { font-size: 15vw; }
